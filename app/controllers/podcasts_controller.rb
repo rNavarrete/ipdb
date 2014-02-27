@@ -11,7 +11,7 @@ class PodcastsController < ApplicationController
   end
 
   def show
-    @feed = Feedzirra::Feed.fetch_and_parse(@podcast.Episodes)
+    @feed = Feedzirra::Feed.fetch_and_parse(@podcast.episodes)
     @podcast = Podcast.find(params[:id])
     @commentable = @podcast
     @comments = @commentable.comments

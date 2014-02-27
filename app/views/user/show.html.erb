@@ -39,7 +39,7 @@
     <% if podcast.user == @user %>
       <li class="well col-md-4">
       <%= link_to image_tag(podcast.image.url) + '', podcast %><br>
-        <h4><%= podcast.Name %></h4>
+        <h4><%= podcast.name %></h4>
           <% if podcast.user == current_user %>
           <%= link_to 'Edit',  edit_podcast_path(podcast), class: 'btn btn-warning' %>
           <%= link_to 'Delete', podcast, class: 'btn btn-danger' ,method: :delete, data: { confirm: 'Are you sure?' } %>
