@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-3">
+	<h3>  <%= @podcast.Name %></h3>
+	<img src="<%= @podcast.image.url %>">
+	<%= rating_for @podcast %>
+
+
+		<p><%= @podcast.description %></p>
+		<a class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Follow</a>
+		<a class="btn btn-default"><span class="glyphicon glyphicon-share"></span> Share</a>
+	</div>
+	<div class="col-md-8 col-md-offset-1">
+	<%= commontator_thread(@podcast) %>
+	  <h4>Episodes:</h4>
+	  <% if defined? @feed.entries then @feed.entries.first(15).each do |t| %>
+
+
+
+		<li class="well">
+			<h4><%= link_to "#{t.title}", "#{t.url}" %></h4>
+			<p><%=sanitize t.summary %></p>
+			<%=t.author%>
+			<%=t.content%>
+
+			<audio controls>
+            <source src="<%= if defined? t.enclosure_url then t.enclosure_url else t.image end %>" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+
+		</li>
+
+		<% end %>
+	<% end %>
+	</div>
+</div>
+
+<script>
+	$('span.thread_new_comment_link a').addClass('btn  btn-primary');
+	$('.thread a:first').addClass('btn btn-primary btn-block');
+</script>
+
+<%= link_to 'Edit', edit_podcast_path(@podcast) %> |
+<%= link_to 'Back', podcasts_path %>

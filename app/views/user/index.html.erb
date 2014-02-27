@@ -1,0 +1,7 @@
+<!-- USERS -->
+<% @users.each do |user| %>
+	<div class="col-md-3">
+	<h4><%= link_to (user.first_name + ' ' + user.last_name) ,"user/#{user.id}" %></h4>
+   <img src=" <%= "#{user.profile_image}" %>" class="img-circle" style="width:150px; height:150px;">
+  </div>
+<% end %>

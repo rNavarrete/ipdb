@@ -1,0 +1,33 @@
+
+<% if user_signed_in? %>
+  <%= link_to 'Add New Podcast', new_podcast_path, class: "btn btn-primary btn-lg pull-right" %>
+<% end %>
+
+<hr class="clear" />
+
+<div class="podcast">
+<h1>Listing podcasts</h1>
+
+
+    <% @podcasts.each do |podcast| %>
+      <li class="well col-sm-3 col-md-3">
+      <%= link_to image_tag(podcast.image.url) + '', podcast %><br>
+        <h4><%= podcast.Name %></h4>
+        <%= rating_for podcast %>
+        <br>
+        Authored by:
+        <% @users.each do |user| %>
+        <% if podcast.user == user %>
+          <%= link_to (user.first_name + ' ' + user.last_name) ,"user/#{user.id}" %><br>
+        <% if podcast.user == current_user %>
+          <%= link_to 'Edit',  edit_podcast_path(podcast), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', podcast, class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% end %>
+        <% end %>
+      </li>
+    <% end %>
+</div>
+
+
+
