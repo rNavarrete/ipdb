@@ -19,11 +19,11 @@ gem 'commontator', '~> 4.2.0'
 gem 'acts_as_votable'
 gem 'letsrate'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'active_admin_importable'
 
 group :doc do
   gem 'sdoc', require: false
 end
-
 
 group :development, :test do
      gem 'sqlite3'

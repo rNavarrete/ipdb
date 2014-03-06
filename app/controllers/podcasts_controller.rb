@@ -1,4 +1,6 @@
 require 'feedzirra'
+require 'nokogiri'
+require 'open-uri'
 
 class PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
@@ -11,6 +13,9 @@ class PodcastsController < ApplicationController
   end
 
   def show
+    @itunes = Nokogiri::HTML(open(@podcast.episodes))
+    @itunesdata = @itunes.css('body')
+    @episodesdata = @itunes.css('tr.podcast-episode')
     @feed = Feedzirra::Feed.fetch_and_parse(@podcast.episodes)
     @podcast = Podcast.find(params[:id])
     @commentable = @podcast
