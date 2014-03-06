@@ -20,6 +20,7 @@ gem 'acts_as_votable'
 gem 'letsrate'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_admin_importable'
+gem 'kaminari'
 
 group :doc do
   gem 'sdoc', require: false

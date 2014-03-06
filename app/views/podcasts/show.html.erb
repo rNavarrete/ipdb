@@ -23,7 +23,7 @@
 	  <h4>Episodes:</h4>
 
 	  <!-- itunes feed -->
-		<% if defined? @episodesdata then @episodesdata.first(15).each do | episode | %>
+		<% if defined? @episodesdata then @episodesdata.first(15).each do |episode| %>
 		     <% show = episode["audio-preview-url"] %>
 		     <% info = episode.css('.text').text %>
 		     <li class="well"><p><%= info %></p>
@@ -33,6 +33,8 @@
 				 </li>
 		   <% end %>
 		 <% end %>
+
+
 		<!-- rss feeds -->
 	  <% if defined? @feed.entries then @feed.entries.first(15).each do |t| %>
 		<li class="well">
@@ -57,3 +59,4 @@
 
 <%= link_to 'Edit', edit_podcast_path(@podcast) %> |
 <%= link_to 'Back', podcasts_path %>
+
