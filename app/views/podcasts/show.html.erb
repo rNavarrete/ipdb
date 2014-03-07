@@ -1,7 +1,7 @@
 <% @itunesdata.each do | itunes | %>
     <% @title = itunes.css(".left h1").text %>
     <% description = itunes.css('.product-review p').text %>
-    <% @img = if defined? itunes.css(".lockup.product.podcast img.artwork").map { |link| link['src'] }.first then itunes.css(".lockup.product.podcast img.artwork").map { |link| link['src'] }.first else img = @podcast.image end %>
+    <% @img = itunes.css(".lockup.product.podcast img.artwork").map { |link| link['src'] }.first %>
 
 
 <p id="notice"><%= notice %></p>
@@ -9,7 +9,7 @@
 	<div class="col-md-3">
 
 	<h3><%= if defined? @title then @title else @podcast.name end %></h3>
-	<img src="<%= if defined? @feed.entries.image then @feed.entries.image else @img end %>" style="width:100%;">
+	<img src="<%= if defined? @podcast.image_url then @podcast.image_url else @podcast.image end %>" style="width:100%;">
 	<%= rating_for @podcast %>
 
 		<p><%= @podcast.description %></p>
@@ -23,7 +23,7 @@
 	  <h4>Episodes:</h4>
 
 	  <!-- itunes feed -->
-		<% if defined? @episodesdata then @episodesdata.first(15).each do |episode| %>
+		<% if @episodesdata.empty? then else @episodesdata.first(15).each do |episode| %>
 		     <% show = episode["audio-preview-url"] %>
 		     <% info = episode.css('.text').text %>
 		     <li class="well"><p><%= info %></p>
@@ -31,7 +31,8 @@
 						<source src="<%= show %>">
 					</audio>
 				 </li>
-		   <% end %>
+
+		 <% end %>
 		 <% end %>
 
 

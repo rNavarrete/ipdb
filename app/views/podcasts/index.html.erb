@@ -10,13 +10,12 @@
 
 
     <% @podcasts.each do |podcast| %>
-    <% @itunes = Nokogiri::HTML(open(podcast.episodes)) %>
-        <% @title = @itunes.css(".left h1").text %>
-          <% @img = @itunes.css(".lockup.product.podcast img.artwork").map { |link| link['src'] }.first %>
+
+
+
       <li class="well col-sm-3 col-md-3">
-      
-      <%= link_to image_tag(if defined? @img.empty? then @img else podcast.image end) + '', podcast, :class => "podcast-img" %><br>
-        <h4><%= podcast.name %> <%= @title %></h4>
+      <%= link_to image_tag(if defined? podcast.image_url then podcast.image_url else podcast.image end) + '', podcast, :class => "podcast-img" %><br>
+        <h4><%= podcast.name %></h4>
 
         <%= rating_for podcast %>
         <br>

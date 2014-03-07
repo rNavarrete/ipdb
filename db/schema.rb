@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227185004) do
+ActiveRecord::Schema.define(version: 20140307004831) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140227185004) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_url"
   end
 
   add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id"

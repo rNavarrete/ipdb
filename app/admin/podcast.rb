@@ -1,4 +1,5 @@
 ActiveAdmin.register Podcast do
+  permit_params :description, :name, :image_file_name,:image_url
   active_admin_importable
   index do
     column :Name
