@@ -10,7 +10,12 @@ class PodcastsController < ApplicationController
     @podcasts = Podcast.all
     @users= User.all
     @comments = Comment.all
+  if params[:search]
+    @podcasts = Podcast.search(params[:search]).order("created_at DESC")
+  else
+    @podcasts = Podcast.all.order('created_at DESC')
   end
+end
 
   def show
     @itunes = Nokogiri::HTML(open(@podcast.episodes))

@@ -24,8 +24,8 @@
 
 	  <!-- itunes feed -->
 		<% if @episodesdata.empty? then else @episodesdata.first(15).each do |episode| %>
-		     <% show = episode["audio-preview-url"] %>
-		     <% info = episode.css('.text').text %>
+		     <% show = if defined? episode["audio-preview-url"] then episode else end %>
+		     <% info = if defined? episode.css('.text').text then episode.css('.text').text else end %>
 		     <li class="well"><p><%= info %></p>
 					<audio controls>
 						<source src="<%= show %>">

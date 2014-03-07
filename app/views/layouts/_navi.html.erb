@@ -24,6 +24,16 @@
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
+        <%= form_tag(podcasts_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+        <div class="form-group">
+		<%= text_field_tag :search, params[:search], placeholder: "Search Podcasts", class: "form-control" %>
+        </div>
+ 		<%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
 	    </ul>
+
+
 	  </div><!-- /.navbar-collapse -->
 	</nav>
+<% end %>
+
+
