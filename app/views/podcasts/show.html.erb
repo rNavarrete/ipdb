@@ -9,7 +9,7 @@
 	<div class="col-md-3">
 
 	<h3><%= if defined? @title then @title else @podcast.name end %></h3>
-	<img src="<%= if defined? @podcast.image_url then @podcast.image_url else @podcast.image end %>" style="width:100%;">
+	<img src="<%= if defined? @podcast.image_url.empty? then @podcast.image_url else @podcast.image.url end %>" style="width:100%;">
 	<%= rating_for @podcast %>
 
 		<p><%= @podcast.description %></p>
@@ -24,7 +24,7 @@
 
 	  <!-- itunes feed -->
 		<% if @episodesdata.empty? then else @episodesdata.first(15).each do |episode| %>
-		     <% show = if defined? episode["audio-preview-url"] then episode else end %>
+		     <% show = if defined? episode["audio-preview-url"] then episode["audio-preview-url"] else end %>
 		     <% info = if defined? episode.css('.text').text then episode.css('.text').text else end %>
 		     <li class="well"><p><%= info %></p>
 					<audio controls>
