@@ -10,7 +10,7 @@ class PodcastsController < ApplicationController
     @users= User.all
     @comments = Comment.all
   if params[:search]
-    @podcasts = PgSearch.multisearch(params[:query]) 
+    @pg_search_documents = PgSearch.multisearch(params[:query]) 
   else
     @podcasts = Podcast.all.order('created_at DESC')
   end
