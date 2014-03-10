@@ -14,6 +14,7 @@ class PodcastsController < ApplicationController
       respond_to do |format|
       format.html
     end
+    @podcasts = Podcast.all.order('created_at DESC')
   end
 
   def show
