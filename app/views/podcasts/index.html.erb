@@ -11,8 +11,6 @@
 
     <% @podcasts.each do |podcast| %>
 
-
-
       <li class="well col-sm-3 col-md-3">
       <%= link_to image_tag(if podcast.image_url.empty? then podcast.image else podcast.image_url end) + '', podcast, :class => "podcast-img" %><br>
         <h4><%= podcast.name %></h4>

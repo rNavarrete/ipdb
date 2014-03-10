@@ -7,16 +7,14 @@ class PodcastsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @users= User.all
     @podcasts = Podcast.all.order('created_at DESC')
+    @users= User.all
     @comments = Comment.all
-  if params[:search]
-    @pg_search_documents = PgSearch.multisearch(params[:search])  
+    @podcasts = PgSearch.multisearch(params[:search])
       respond_to do |format|
-      format.html # index.html.erb
+      format.html
     end
   end
-end
 
   def show
     @itunes = Nokogiri::HTML(open(@podcast.episodes))
