@@ -9,9 +9,9 @@
 	<div class="col-md-3">
 
 	<h3><%= if defined? @title then @title else @podcast.name end %></h3>
-	<img src="<%= if defined? @podcast.image_url.empty? then @podcast.image_url else @podcast.image.url end %>" style="width:100%;">
+	<img src="<%= if @podcast.image_url.empty? then @podcast.image else @podcast.image_url end %>" style="width:100%;">
 	<%= rating_for @podcast %>
-
+		<h4>Number of Episodes : <%= if @episodesdata.empty? then @feed.entries.count else @episodesdata.count end %></h4>
 		<p><%= @podcast.description %></p>
 		<p><%= description %></p>
 		<a class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Follow</a>
@@ -34,8 +34,6 @@
 
 		 <% end %>
 		 <% end %>
-
-
 		<!-- rss feeds -->
 	  <% if defined? @feed.entries then @feed.entries.first(15).each do |t| %>
 		<li class="well">
@@ -57,7 +55,7 @@
 	$('span.thread_new_comment_link a').addClass('btn  btn-primary');
 	$('.thread a:first').addClass('btn btn-primary btn-block');
 </script>
-
+<% if @podcast.user == current_user %>
 <%= link_to 'Edit', edit_podcast_path(@podcast) %> |
 <%= link_to 'Back', podcasts_path %>
-
+<% end %>

@@ -21,6 +21,7 @@ gem 'letsrate'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_admin_importable'
 gem 'kaminari'
+gem 'texticle', "2.0", :require => 'texticle/rails'
 
 group :doc do
   gem 'sdoc', require: false

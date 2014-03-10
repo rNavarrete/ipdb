@@ -4,8 +4,4 @@ class Podcast < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 	acts_as_commontable
 	letsrate_rateable
-
-	def self.search(query)
-  		where("name like ?", "%#{query}%") 
-	end
 end

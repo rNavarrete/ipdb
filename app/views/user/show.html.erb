@@ -15,7 +15,7 @@
   <p><%= @user.description %></p>
   <div class="row">
 
-  <div class="followers">
+ <!-- <div class="followers">
       <div class="col-md-6">
           <h3>Followers</h3>
           <h3>52</h3>
@@ -24,7 +24,7 @@
           <h3>Following</h3>
           <h3>0</h3>
       </div>
-    </div>
+    </div> -->
   </div>
   <hr />
   <div class="social">
@@ -38,7 +38,7 @@
   <% @podcasts.each do |podcast| %>
     <% if podcast.user == @user %>
       <li class="well col-md-4">
-      <%= link_to image_tag(podcast.image.url) + '', podcast %><br>
+      <%= link_to image_tag(if podcast.image_url.empty? then podcast.image else podcast.image_url end) + '', podcast %><br>
         <h4><%= podcast.name %></h4>
           <% if podcast.user == current_user %>
           <%= link_to 'Edit',  edit_podcast_path(podcast), class: 'btn btn-warning' %>

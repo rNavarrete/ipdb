@@ -7,7 +7,6 @@ class PodcastsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @podcasts = Podcast.all
     @users= User.all
     @comments = Comment.all
   if params[:search]
