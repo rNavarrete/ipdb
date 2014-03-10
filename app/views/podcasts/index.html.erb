@@ -7,8 +7,8 @@
 
 <div class="podcast">
 <h1>Listing podcasts</h1>
-
-
+<%= paginate @podcasts %>
+<hr />
     <% @podcasts.each do |podcast| %>
 
       <li class="well col-sm-3 col-md-3">
@@ -31,5 +31,6 @@
     <% end %>
 </div>
 
+<%= paginate @podcasts %>
 
 
