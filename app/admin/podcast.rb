@@ -1,5 +1,5 @@
 ActiveAdmin.register Podcast do
-  permit_params :description, :name, :image_file_name,:image_url, :episodes
+  permit_params :description, :name, :image_file_name,:image_url, :episodes, :user_id
   active_admin_importable
   index do
     column :Name
@@ -8,6 +8,9 @@ ActiveAdmin.register Podcast do
     default_actions
 
   end
+
+
+   
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
