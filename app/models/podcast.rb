@@ -4,4 +4,14 @@ class Podcast < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 	acts_as_commontable
 	letsrate_rateable
+	include PgSearch
+	multisearchable :against => [:name, :description]
+	
+	def self.search(query)
+	  if query.present?
+	    search(query)
+	  else
+	    scoped
+	  end
+	end
 end
