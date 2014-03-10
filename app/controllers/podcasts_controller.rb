@@ -10,11 +10,6 @@ class PodcastsController < ApplicationController
     @podcasts = Podcast.all.order('created_at DESC')
     @users= User.all
     @comments = Comment.all
-    @podcasts = PgSearch.multisearch(params[:search])
-      respond_to do |format|
-      format.html
-    end
-    @podcasts = Podcast.all.order('created_at DESC')
   end
 
   def show
