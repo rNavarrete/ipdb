@@ -8,11 +8,13 @@ class PodcastsController < ApplicationController
   
   def index
     @users= User.all
+    @podcasts = Podcast.all.order('created_at DESC')
     @comments = Comment.all
   if params[:search]
-    @pg_search_documents = PgSearch.multisearch(params[:query]) 
-  else
-    @podcasts = Podcast.all.order('created_at DESC')
+    @pg_search_documents = PgSearch.multisearch(params[:search])  
+      respond_to do |format|
+      format.html # index.html.erb
+    end
   end
 end
 
