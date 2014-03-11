@@ -7,7 +7,11 @@ class PodcastsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @podcasts = Podcast.all.order('created_at DESC').page(params[:page])
+if params[:search].present?
+      @podcasts = PodcastSearch.new(query: params[:search]).results
+    else
+      @podcasts = Podcast.all.order('created_at DESC').page(params[:page])
+    end
     @users= User.all
     @comments = Comment.all
   end

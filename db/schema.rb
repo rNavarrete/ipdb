@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310203735) do
+ActiveRecord::Schema.define(version: 20140311164851) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(version: 20140310203735) do
     t.text     "content"
     t.integer  "searchable_id"
     t.string   "searchable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "podcast_searches", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

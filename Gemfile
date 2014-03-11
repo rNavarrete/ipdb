@@ -21,14 +21,13 @@ gem 'letsrate'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_admin_importable'
 gem 'kaminari'
-gem 'pg_search'
-
+gem 'textacular'
 group :doc do
   gem 'sdoc', require: false
 end
 
 group :development, :test do
-     gem 'sqlite3'
+	 gem 'sqlite3'
      gem 'thin'
 end
 

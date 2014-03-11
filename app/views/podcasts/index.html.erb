@@ -4,6 +4,10 @@
 <% end %>
 
 <hr class="clear" />
+<%= form_tag({:controller=>"podcasts", :action=>"index"}, :method=> "get") do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+
 
 <div class="podcast">
 <h1>Listing podcasts</h1>
@@ -34,3 +38,4 @@
 <%= paginate @podcasts %>
 
 
+<% end %>
