@@ -1,7 +1,7 @@
 
 <div class="row">
 <div class="col-md-3">
-<h2 class="username"><%= @user.first_name + ' ' + @user.last_name %></h2>
+<h2 class="username"><%= if @user.first_name.empty? then else @user.first_name end  + ' ' + if @user.last_name.empty? then else @user.last_name end %></h2>
 <br>
   <img src=" <%= @user.profile_image %>" class="img-circle">
   <div class="social">
