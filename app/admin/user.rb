@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
+permit_params :id, :first_name, :last_name,:email, :description
 index do
-  permit_params :first_name, :last_name,, :email
     column :id
     column :email
     column :first_name
