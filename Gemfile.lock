@@ -49,6 +49,10 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.14)
+    aws-sdk (1.34.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
@@ -202,6 +206,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -212,6 +217,7 @@ DEPENDENCIES
   active_admin_importable
   activeadmin!
   acts_as_votable
+  aws-sdk
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   commontator (~> 4.2.0)

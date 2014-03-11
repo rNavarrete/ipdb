@@ -22,6 +22,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_admin_importable'
 gem 'kaminari'
 gem 'textacular'
+gem 'aws-sdk'
+
 group :doc do
   gem 'sdoc', require: false
 end

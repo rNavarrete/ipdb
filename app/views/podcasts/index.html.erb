@@ -11,7 +11,7 @@
 
 <div class="podcast">
 <h1>Listing podcasts</h1>
-
+<%= if defined? @paginate then paginate @paginate else end %>
 <hr />
     <% @podcasts.each do |podcast| %>
 
@@ -34,7 +34,6 @@
       </li>
     <% end %>
 </div>
-
 
 
 

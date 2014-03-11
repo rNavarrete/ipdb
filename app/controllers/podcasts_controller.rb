@@ -9,11 +9,15 @@ class PodcastsController < ApplicationController
   def index
 if params[:search].present?
       @podcasts = PodcastSearch.new(query: params[:search]).results
+      @paginate = Kaminari.paginate_array(@podcasts).page(params[:page])
+
     else
       @podcasts = Podcast.all.order('created_at DESC').page(params[:page])
+      @paginate = Podcast.all.order('created_at DESC').page(params[:page])
     end
     @users= User.all
     @comments = Comment.all
+
   end
 
   def show
