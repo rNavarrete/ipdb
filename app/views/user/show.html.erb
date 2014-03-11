@@ -38,7 +38,7 @@
   <% @podcasts.each do |podcast| %>
     <% if podcast.user == @user %>
       <li class="well col-md-4">
-      <%= link_to image_tag(if podcast.image_url.empty? then podcast.image else podcast.image_url end) + '', podcast %><br>
+      <%= link_to image_tag(if podcast.image_url.blank? then podcast.image else podcast.image_url end) + '', podcast %><br>
         <h4><%= podcast.name %></h4>
           <% if podcast.user == current_user %>
           <%= link_to 'Edit',  edit_podcast_path(podcast), class: 'btn btn-warning' %>

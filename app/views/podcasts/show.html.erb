@@ -9,7 +9,7 @@
 	<div class="col-md-3">
 
 	<h3><%= if defined? @title then @title else @podcast.name end %></h3>
-	<img src="<%= if @podcast.image_url.empty? then @podcast.image else @podcast.image_url end %>" style="width:100%;">
+	<img src="<%= if @podcast.image_url.blank? then @podcast.image else @podcast.image_url end %>" style="width:100%;">
 	<%= rating_for @podcast %>
 		<h4>Number of Episodes : <%= if @episodesdata.empty? then @feed.entries.count else @episodesdata.count end %></h4>
 		<p><%= @podcast.description %></p>
