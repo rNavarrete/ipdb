@@ -73,7 +73,6 @@ img{
 
 .podcast li{
 	list-style:none;
-	margin:10px;
 }
 
 .podcast .col-md-2{
@@ -150,13 +149,17 @@ ul.podcast-profile{
 	width:100%;
 }
 
+.col-xs-5.col-md-2{
+	margin:10px;
+}
 
 //responsive
 
 @media (max-width: $screen-sm-min) { 
 
+
 	a.navbar-brand img {
-	width: 16%;
+	width: 21%;
 	}
 	.navbar ul.nav{
 	position: relative;
