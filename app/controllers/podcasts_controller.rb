@@ -12,7 +12,7 @@ if params[:search].present?
       @paginate = Kaminari.paginate_array(@podcasts).page(params[:page])
 
     else
-      @podcasts = Podcast.all.order('created_at DESC').page(params[:page])
+      @podcasts = Podcast.all.order('created_at ASC').page(params[:page])
       @paginate = Podcast.all.order('created_at DESC').page(params[:page])
     end
     @users= User.all

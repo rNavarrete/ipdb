@@ -149,8 +149,8 @@ ul.podcast-profile{
 	width:100%;
 }
 
-.col-xs-5.col-md-2{
-	margin:10px;
+.col-md-2{
+	margin:5px;
 }
 
 //responsive
@@ -164,5 +164,11 @@ ul.podcast-profile{
 	.navbar ul.nav{
 	position: relative;
 	padding-left:40px;
+	}
+	.col-xs-5{
+		width:47%;
+	.col-xs-5{
+		margin:5px;
+	}
 	}
 }
